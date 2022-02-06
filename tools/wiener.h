@@ -15,7 +15,7 @@ float wienerIncrement(float interval){
 float wienerSample(float sims = 100){
     float sample = 0, increment = 1/sims;
     for(int n_sims = 0; n_sims < sims; n_sims++) 
-    sample += wienerIncrement(increment);
+        sample += wienerIncrement(increment);
     return sample;
 }
 
@@ -24,7 +24,7 @@ float* wienerIncrementSample(long size, float sims = 100){
     float* sample;
     sample = new float[size];
     for(int n_sample = 0; n_sample < size; n_sample++)
-    sample[n_sample] = wienerSample(sims);
+        sample[n_sample] = wienerSample(sims);
     return sample;
 }
 
