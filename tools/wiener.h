@@ -1,4 +1,7 @@
-#include <iostream>
+
+#ifndef WIENER_H
+#define WIENER_H
+
 #include <random>
 using namespace std;
 
@@ -36,3 +39,5 @@ float* wienerVector(long size, float sims = 100){
     sample[n_sample] = wienerSample(sims);
     return sample;
 }
+
+#endif

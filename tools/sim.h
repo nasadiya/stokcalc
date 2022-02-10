@@ -1,6 +1,8 @@
 // Normal mixture sampling
 
-#include <iostream>
+#ifndef SIM_H
+#define SIM_H
+
 #include <random>
 
 using namespace std;
@@ -18,9 +20,10 @@ double dot(double* a, double* b, long size){
 // single standard normal sample 
 double rNorm(){
     random_device r;
-    mt19937 gen(r());
+    seed_seq seed{r()};
+    mt19937 eng(seed);
     normal_distribution<> N{0,1};
-    return N(gen);
+    return N(eng);
 }
 
 // N sample of standard normal
@@ -58,3 +61,5 @@ double* rMixNormV(double* mean, double* std, double* mix, long size, long sims =
     
     return sample;
 }
+
+#endif

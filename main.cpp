@@ -1,6 +1,9 @@
 #include <iostream>
 #include "./tools/wiener.h"
 #include "./tools/sim.h"
+#include "./tools/csvin.h"
+
+using namespace std;
 
 int main () {
     //
@@ -12,9 +15,19 @@ int main () {
         mix[i] = (i+1)/(len*(len+1)/2);
     }
 
-    double* sample = rNormVS(mean, std, len);
-    for(int i = 0; i < len; i++)
-        cout << sample[i] << "\n";
+    //float* sample = wienerVector(len);
+    //for(int i = 0; i < len; i++)
+    //    cout << sample[i] << "\n";
     //cout << dot(mean,std, len) << "\n";
+    vector<vector<string>> content = readcsv("./test.csv");
+    for(int i=0;i<content.size();i++)
+	{
+		for(int j=0;j<content[i].size();j++)
+		{
+			cout<<content[i][j]<<" ";
+		}
+		cout<<"\n";
+	}
+
     return 0;
 }
