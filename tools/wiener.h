@@ -23,8 +23,9 @@ double wienerSample(double sims = 100){
 }
 
 // vector of dW samples
-double* wienerIncrementSample(long size, double interval = 1/1000){
+double* wienerIncrementSample(long size = 1000){
     double* sample;
+    double interval = 1/ (1.0 * size);
     sample = new double[size];
     for(int n_sample = 0; n_sample < size; n_sample++)
         sample[n_sample] = wienerIncrement(interval);
@@ -32,11 +33,11 @@ double* wienerIncrementSample(long size, double interval = 1/1000){
 }
 
 // matrix of dW samples with each row representing 
-double** wienerIncrementMatrix(long rows, long cols, double interval = 1/1000){
+double** wienerIncrementMatrix(long rows, long cols = 1000){
     double** sample;
     sample = new double*[rows];
     for(int n_row = 0; n_row < rows; n_row++)
-        sample[n_row] = wienerIncrementSample(cols, interval);
+        sample[n_row] = wienerIncrementSample(cols);
     return sample;
 }
 
